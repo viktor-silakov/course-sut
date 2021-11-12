@@ -8,12 +8,8 @@
 
     <link href="https://unpkg.com/tabulator-tables@5.0.7/dist/css/tabulator.min.css" rel="stylesheet">
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.0.7/dist/js/tabulator.min.js"></script>
+    <link rel="icon" type="image/png" href="/favicon.png">
 
-    <style>
-        #hovered:hover {
-            background-color: red;
-        }
-    </style>
 
     <title>Login</title>
 </head>
@@ -27,16 +23,18 @@
     function login() {
         console.log($('#login').val())
         console.log($('#password').val())
-        if (($('#login').val() === 'user') && ($('#password').val() === 'password')) {
+        if (($('#login').val() === 'walker@jw.com') && ($('#password').val() === 'password')) {
             $('#login-wrap').remove();
         } else {
             $('#error')[0].style.opacity = '100%'
+            return;
         }
         $('#spinner')[0].style.display = 'flex';
 
         setTimeout(() => {
             $('#spinner')[0].style.display = 'none';
             $('#dashboard')[0].style.display = 'block';
+            $('title')[0].innerText = 'Report portal'
         }, randomInteger(1, 2) * 1000)
         // $('#spinner')[0].style.display = 'none';
 
@@ -46,7 +44,7 @@
     <div class="content p-5 align-middle">
         <div class="row">
             <div class="col text-center">
-                <input id="login" type="text" placeholder="login" value="user">
+                <input id="login" type="text" placeholder="login" value="walker@jw.com">
             </div>
         </div>
         <div class="row">
@@ -78,7 +76,8 @@
 <!--DASHBOARD-->
 <dashboard id="dashboard" style="display: none" class="bg-light">
 
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <!--STICKY HEADER-->
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow" style="margin-top: -40px">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Report Panel</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
@@ -88,12 +87,20 @@
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="#">Sign out</a>
+                <a class="nav-link px-3" title="walker@jw.com" href="#">John Walker</a>
             </div>
         </div>
     </header>
 
-
+    <!--SECRET MENU-->
+    <div class="container-fluid" style="height: 40px">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-danger" onclick="alert('the secret area')">alert</button>
+            </div>
+        </div>
+    </div>
+    <!--DASHBOARD MAIN-->
     <div class="container-fluid">
         <div class="row">
             <!--SIDEBAR-->
@@ -304,7 +311,6 @@
 
 </body>
 <script>
-    login();
 
     const hoveredStyle = `#first-nav-block > li:nth-child(${randomInteger(0, 5)}):hover{ background-color: red}`
     var styleSheet = document.createElement("style")
@@ -340,5 +346,6 @@
 
     });
 
+    // login();
 </script>
 </html>
