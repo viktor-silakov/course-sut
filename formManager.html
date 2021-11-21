@@ -257,13 +257,13 @@
                         <input type="text" class="form-control" name="address2" id="address2"
                                placeholder="Apartment, studio, or floor">
                     </div>
-                    <div class="form-row row">
-                        <div class="form-group col-md-6">
-                            <label for="city">City</label>
-                            <input type="text" name="city" class="form-control" id="city" autocomplete="off"
-                                   onkeydown="updateAutocompleteData()">
-                        </div>
-                                          </div>
+<!--                    <div class="form-row row">-->
+<!--                        <div class="form-group col-md-6">-->
+<!--                            <label for="city">City</label>-->
+<!--                            <input type="text" name="city" class="form-control" id="city" autocomplete="off"-->
+<!--                                   onkeydown="updateAutocompleteData()">-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="form-row row">
                         <div class="form-group col-md-4">
                             <label for="state">State</label>
@@ -315,7 +315,11 @@
                             Country
                         </label>
                     </div>
-
+                    <div class="form-group col-md-6">
+                        <label for="city">City</label>
+                        <input type="text" name="city" class="form-control" id="city" autocomplete="off"
+                               onkeydown="updateAutocompleteData()">
+                    </div>
                     <button type="submit"
                             onclick="createUser(); setTimeout(()=>{ document.location = './Users.html'}, 300)"
                             class="btn btn-primary mt-3">Create
