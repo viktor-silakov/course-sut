@@ -10,7 +10,7 @@
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.0.7/dist/js/tabulator.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"
             integrity="sha256-0H3Nuz3aug3afVbUlsu12Puxva3CP4EhJtPExqs54Vg=" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="./favicon.png">
 
 
     <title>Login</title>
@@ -294,6 +294,11 @@
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    const params = new URLSearchParams(window.location.search)
+    console.log({params})
+    const randomSeconds = params.has('quick') ? 0 : 10
+    console.log(params.has('quick'))
+
     function loadPortal() {
         $('#login-wrap')[0].style.display = 'none';
         $('#spinner')[0].style.display = 'flex';
@@ -302,7 +307,7 @@
             $('#spinner')[0].style.display = 'none';
             $('#dashboard')[0].style.display = 'block';
             $('title')[0].innerText = 'Report portal'
-        }, randomInteger(1, 10) * 1000)
+        }, randomInteger(1, randomSeconds   ) * 1000)
     }
 
     function login() {
