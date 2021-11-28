@@ -158,7 +158,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./formUser.html">
+                            <a class="nav-link users" href="./formUser.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                      stroke-linejoin="round" class="feather feather-users" aria-hidden="true">
@@ -170,8 +170,8 @@
                                 Create User
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./formManager.html">
+                        <li class="nav-item ">
+                            <a class="nav-link users" href="./formManager.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                      stroke-linejoin="round" class="feather feather-users" aria-hidden="true">
@@ -184,7 +184,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./Users.html">
+                            <a class="nav-link users" href="./Users.html">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                      stroke-linejoin="round" class="feather feather-users" aria-hidden="true">
@@ -274,7 +274,9 @@
 
                     <ul id="third-nav-block" class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" onclick="$('#status').text('Loading..'); setTimeout(()=>{$('#status').text('Active')}, 3500)" id="status" href="javascript:void(0)">
+                            <a class="nav-link"
+                               onclick="$('#status').text('Loading..'); setTimeout(()=>{$('#status').text('Active')}, 3500)"
+                               id="status" href="javascript:void(0)">
                                 Check Status
                             </a>
                         </li>
@@ -374,6 +376,9 @@
         { id: 5, name: "Maria Sansebelo", age: 22, gender: "female", rate: 166, col: "green", dob: "03/11/1992" },
     ];
 
+    var isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+    var sortAge = isFirefox ? 'string' : 'number'
+
     //define table
     var table = new Tabulator("#example-table", {
         data: tabledata,
@@ -382,7 +387,7 @@
         columns: [
             { title: "Id", field: "id", sorter: 'number' },
             { title: "Name", field: "name", sorter: 'string' },
-            { title: "Age", field: "age", sorter: 'string' }, // wrong sorter
+            { title: "Age", field: "age", sorter: sortAge }, // wrong sorter
             { title: "Gender", field: "gender", sorter: 'string' },
             { title: "Rate", field: "rate", sorter: 'number' },
             { title: "Color", field: "col", sorter: 'string' },
