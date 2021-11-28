@@ -2,7 +2,7 @@ function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function loadPortal() {
+function loadPortal(randomSeconds) {
     $('#login-wrap')[0].style.display = 'none';
     $('#spinner')[0].style.display = 'flex';
 
