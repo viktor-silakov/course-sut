@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="js/arkanoid.css">
+    <title>Arcanoid</title>
+</head>
+
+<body onkeydown=pad1()>
+
+<div id="out">
+
+    <div id="pad"></div>
+    <div id="ball"></div>
+
+</div>
+<div id="score"></div>
+<button onclick="move()" class="a">PLAY</button>
+<button onclick="resets(0)"class="a">PAUSE</button>
+<button onclick="resets(1)"class="a">RESET</button>
+
+</body>
+<script src="js/arkanoid.js"></script>
+</html>
