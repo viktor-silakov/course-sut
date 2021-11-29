@@ -215,7 +215,7 @@
                     <div class="sidebar-heading d-flex d-none justify-content-between1 align-items-center px-3"
                          id="withdrew-wrapper">
                         <span>Operation result:</span> <span class="ml-2 text-primary" style="padding-left: 10px"
-                                                     id="withdrew"></span>
+                                                             id="withdrew"></span>
                     </div>
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         <span>Saved reports</span>
@@ -452,9 +452,9 @@
         console.log('DOM fully loaded and parsed');
         const params = new URLSearchParams(window.location.search)
         console.log({ params })
-        const randomSeconds = params.has('quick') ? 0 : 10
+        window.randomSeconds = params.has('quick') ? 2 : 10
         console.log(params.has('quick'))
-
+        console.log({ randomSeconds })
         loginGuard(randomSeconds);
         breakCSS();
         renderTable();

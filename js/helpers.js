@@ -23,14 +23,14 @@ function login() {
         $('#error')[0].style.opacity = '100%'
         return;
     }
-    loadPortal();
+    loadPortal(window.randomSeconds);
 }
 
 function logout() {
     Cookies.remove('username', { path: '' });
     Cookies.remove('username', { path: '/' });
     setTimeout(() => {
-        document.location = "./index.html?quick"
+        document.location = "./index.html   "
         // location.reload();
     }, 111)
 }
