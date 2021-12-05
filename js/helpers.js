@@ -16,10 +16,23 @@ function loadPortal(randomSeconds) {
 function login() {
     console.log($('#login').val())
     console.log($('#password').val())
-    if (($('#login').val() === 'walker@jw.com') && ($('#password').val() === 'password')) {
+    const loginValue = $('#login').val();
+    const passwordValue = $('#password').val();
+    if ((loginValue === 'walker@jw.com') && (passwordValue === 'password')) {
         Cookies.set('username', 'walker@jw.com')
         $('#login-wrap')[0].style.display = 'none';
     } else {
+        $('#error')[0].innerText = 'Fail to login'
+        console.log({ loginValue })
+        if (loginValue === 'old_walker@jw.com') {
+            $('#error')[0].innerText = 'The user is suspended'
+        }
+        if (loginValue === '') {
+            $('#error')[0].innerText = 'Login is empty'
+        }
+        if (passwordValue === '') {
+            $('#error')[0].innerText = 'Password is empty'
+        }
         $('#error')[0].style.opacity = '100%'
         return;
     }
