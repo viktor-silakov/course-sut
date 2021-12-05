@@ -45,7 +45,8 @@ function ballmove() {
     let scores = document.getElementById("score");
 
 
-    scores.innerHTML = "<br><br><br><br><b>SCORE</b><br>" + points + "<br><br><br><br>LIVES<br>" + lives
+    scores.innerHTML = `<div style="margin-top: 40px"><span>SCORE:&nbsp</span><span id="points">${points}</span></div>`
+        + `<div style="margin-top: 40px"><span>LIVES:&nbsp</span><span id="lives">${lives}</span></div>`
 
     ball = document.getElementById("ball");
 
@@ -125,16 +126,19 @@ function ballmove() {
 
 function pad1() {
     pad = document.getElementById("pad");
-
-    if (event.keyCode == 39) {
+    console.log(event.keyCode);
+    if (event.keyCode == 39 || event.keyCode == 68) {
         if (Lpad <= 880) {
             Lpad += 20
         }
     }
-    if (event.keyCode == 37) {
+    if (event.keyCode == 37 || event.keyCode == 65) {
         if (Lpad >= 0) {
             Lpad -= 20
         }
+    }
+    if (event.keyCode == 32) {
+        move();
     }
 
     if (Lpad >= 0 && Lpad <= 880) {
@@ -145,15 +149,16 @@ function pad1() {
 createBlock();
 
 function createBlock() {
-    let colors = ["RoyalBlue", "RebeccaPurple ", "PeachPuff ",]
+    let colors = ["red", "lime ", "magenta ",]
     for (i = 1, j = 0; i < 49; i++, j++) {
         if (j == 3) {
             j = 0;
         }
 
         x = document.createElement("div")
-        x.setAttribute("style", "width:70px;height:15px;background:" + colors[j] + ";margin-left:10px;margin-top:10px;border-bottom-left-radius:10px;border-top-right-radius:10px;position:relative;float:left");
+        x.setAttribute("style", "background:" + colors[j]);
         x.setAttribute("id", "block" + i);
+        x.setAttribute("class", "block");
         outDiv.appendChild(x);
 
     }
