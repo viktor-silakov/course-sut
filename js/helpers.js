@@ -29,6 +29,8 @@ function login() {
         }
         if (loginValue === '') {
             $('#error')[0].innerText = 'Login is empty'
+            $('#error')[0].style.opacity = '100%'
+            return;
         }
         if (passwordValue === '') {
             $('#error')[0].innerText = 'Password is empty'
