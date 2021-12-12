@@ -72,3 +72,26 @@ function createUser() {
     window.localStorage.setItem('users', JSON.stringify(usersArr));
     console.log({ USERS: window.localStorage.getItem('users') })
 }
+
+function createSubscribe() {
+    let subArr = [];
+    if (window.localStorage.getItem('subscribes')) {
+        subArr = JSON.parse(window.localStorage.getItem('subscribes'));
+    }
+    console.log({
+        subArr
+    })
+    const formData = $('form').serializeArray().reduce(function (m, o) {
+        m[o.name] = o.value;
+        return m;
+    }, {});
+
+    console.log({
+        formData
+    })
+
+    subArr.push(formData);
+
+    window.localStorage.setItem('subscribes', JSON.stringify(subArr));
+    console.log({ Subs: window.localStorage.getItem('subscribes') })
+}
