@@ -543,6 +543,27 @@
             writeToDatabase(key);
         })
     })
+
+
+    // window.localStorage.setItem('users', JSON.stringify(usersArr));
+    // if(!window.localStorage.getItem('users').some(u=> u.email==='default@test.com'));
+
+    if (!JSON.parse(window.localStorage.getItem('users'))) {
+        const defaultUser = {
+            "email": "default@test.com",
+            "role": "user",
+            "password": "pwd",
+            "address1": "Test street",
+            "address2": "Dom2",
+            "city": "Minsk",
+            "zip": "1234",
+            "anual": "220",
+            "description": "test desc"
+        }
+        window.localStorage.setItem('users', JSON.stringify([defaultUser]));
+    }
+
+
 </script>
 
 <script id="database">[]</script>

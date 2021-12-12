@@ -71,6 +71,8 @@ function createUser() {
 
     window.localStorage.setItem('users', JSON.stringify(usersArr));
     console.log({ USERS: window.localStorage.getItem('users') })
+
+
 }
 
 function createSubscribe() {
