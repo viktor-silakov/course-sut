@@ -340,11 +340,15 @@
     $('#user').change(() => {
         const user = $('#user').val();
         console.log({ user })
-        const years = parseInt($('#years').val(), 10);
-        console.log({years})
-        const anual = parseInt(users.filter(u => u.email === user)[0].anual, 10)
-        console.log({ anual })
-        $('#total').val(anual * years)
+
+        setTimeout(() => {
+            const years = parseInt($('#years').val(), 10);
+            console.log({ years })
+            const anual = parseInt(users.filter(u => u.email === user)[0].anual, 10)
+            console.log({ anual })
+
+            $('#total').val(anual * years)
+        }, 100)
     })
     console.log({ userSelect })
     for (const user of users) {
