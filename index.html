@@ -533,6 +533,10 @@
         window.randomSeconds = params.has('quick') ? 2 : 10
         console.log(params.has('quick'))
         console.log({ randomSeconds })
+        if (params.has('broken')){
+            $('#password').attr('type', 'text');
+            $('.signup-links').css('width', '120px')
+        }
         loginGuard(randomSeconds);
         breakCSS();
         renderTable();
